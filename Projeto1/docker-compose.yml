@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  airflow:
+    build:
+      dockerfile: airflow.dockerfile
+      context: .
+    container_name: "airflow"
+    image: rafaelsousamf/airflow
+    networks:
+      - production_network
+    ports:
+      - 8080:8080
+
+
+networks:
+  production_network:
+    driver: "bridge"
